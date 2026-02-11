@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CV Generator</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #0a66c2;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cv {
+    display: none;
+    margin-top: 30px;
+    border-top: 2px solid #000;
+    padding-top: 20px;
+}
+
+.cv img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .cv, .cv * {
+        visibility: visible;
+    }
+    .cv {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Simple CV Generator</h2>
+
+<label>Full Name</label>
+<input type="text" id="name">
+
+<label>Phone</label>
+<input type="text" id="phone">
+
+<label>Passport Number</label>
+<input type="text" id="passport">
+
+<label>Experience</label>
+<textarea id="experience"></textarea>
+
+<label>Upload Photo</label>
+<input type="file" id="photo" accept="image/*">
+
+<button onclick="generateCV()">Generate PDF</button>
+
+<div class="cv" id="cv">
+
+<h1 id="cvName"></h1>
+<p><strong>Phone:</strong> <span id="cvPhone"></span></p>
+<p><strong>Passport:</strong> <span id="cvPassport"></span></p>
+
+<h3>Experience</h3>
+<p id="cvExperience"></p>
+
+<img id="cvPhoto">
+
+<br><br>
+<button onclick="window.print()">Print / Save as PDF</button>
+
+</div>
+
+</div>
+
+<script>
+function generateCV() {
+
+document.getElementById("cvName").innerText =
+document.getElementById("name").value;
+
+document.getElementById("cvPhone").innerText =
+document.getElementById("phone").value;
+
+document.getElementById("cvPassport").innerText =
+document.getElementById("passport").value;
+
+document.getElementById("cvExperience").innerText =
+document.getElementById("experience").value;
+
+const file = document.getElementById("photo").files[0];
+const reader = new FileReader();
+
+reader.onload = function(e) {
+document.getElementById("cvPhoto").src = e.target.result;
+};
+
+if(file){
+reader.readAsDataURL(file);
+}
+
+document.getElementById("cv").style.display = "block";
+}
+</script>
+
+</body>
+</html>
