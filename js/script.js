@@ -1,257 +1,125 @@
-/* ===============================
-   GENERAL LAYOUT
-================================= */
+// ===============================
+// AGE CALCULATION
+// ===============================
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f6f9;
-}
+function calculateAge(dob) {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const month = today.getMonth() - birthDate.getMonth();
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    background: #0d3b66;
-    color: white;
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 20px;
-}
-
-/* ===============================
-   FORM SECTION
-================================= */
-
-.form-section {
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    border-left: 5px solid #0d3b66;
-}
-
-.form-section h2 {
-    margin-top: 20px;
-    color: #0d3b66;
-    font-size: 16px;
-}
-
-label {
-    display: block;
-    margin-top: 8px;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-input, select {
-    width: 100%;
-    padding: 6px;
-    margin-top: 4px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 13px;
-}
-
-button {
-    margin-top: 15px;
-    padding: 8px 12px;
-    background: #0d3b66;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #145da0;
-}
-
-/* ===============================
-   CV PREVIEW SECTION
-================================= */
-
-.preview-section {
-    background: white;
-    padding: 15px;
-    border-radius: 6px;
-    margin-top: 20px;
-}
-
-/* ===============================
-   PAGE STYLE
-================================= */
-
-.cv-page {
-    font-size: 10.5px;
-    line-height: 1.2;
-    padding: 10px;
-    direction: rtl;
-    text-align: right;
-}
-
-/* ===============================
-   HEADER
-================================= */
-
-.cv-header {
-    text-align: center;
-    border-bottom: 2px solid #0d3b66;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-}
-
-.cv-header h2 {
-    margin: 0;
-    font-size: 14px;
-    color: #0d3b66;
-}
-
-.cv-header p {
-    margin: 2px 0;
-    font-size: 11px;
-}
-
-.office-line {
-    font-size: 10px;
-    text-align: right;
-}
-
-/* ===============================
-   HERO SECTION
-================================= */
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 65% 35%;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.hero-left h2 {
-    margin: 0 0 4px;
-    font-size: 14px;
-}
-
-.compact-line {
-    margin: 1px 0;
-}
-
-.salary-box {
-    background: #ffc107;
-    padding: 4px 6px;
-    font-weight: bold;
-    margin: 4px 0;
-    border-radius: 3px;
-    display: inline-block;
-}
-
-.full-photo {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border: 2px solid #0d3b66;
-}
-
-/* ===============================
-   TWO COLUMN INFO GRID
-================================= */
-
-.info-grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 10px;
-    margin-top: 6px;
-}
-
-h3 {
-    font-size: 11px;
-    margin: 4px 0 2px;
-    border-bottom: 1px solid #0d3b66;
-}
-
-/* ===============================
-   SKILLS GRID
-================================= */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 3px 10px;
-    margin-top: 4px;
-}
-
-/* ===============================
-   PASSPORT PAGE
-================================= */
-
-.passport-scan {
-    text-align: center;
-    margin-top: 10px;
-}
-
-/* ===============================
-   MOBILE RESPONSIVE
-================================= */
-
-@media (max-width: 768px) {
-
-    .hero-grid {
-        grid-template-columns: 100%;
+    if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
     }
-
-    .info-grid {
-        grid-template-columns: 100%;
-    }
-
-    .full-photo {
-        height: 280px;
-    }
-
+    return age;
 }
 
-/* ===============================
-   PRINT MODE
-================================= */
+// ===============================
+// AUTO SALARY RULES
+// ===============================
 
-@media print {
+function autoSalary() {
+    const nationality = document.getElementById("nationality").value;
+    const experience = document.getElementById("experienceType").value;
+    const salaryField = document.getElementById("salary");
 
-    @page {
-        size: A4;
-        margin: 10mm;
+    if (nationality === "Kenya") {
+        salaryField.value = experience === "Fresh" ? 850 : 1000;
+        salaryField.readOnly = true;
     }
-
-    body * {
-        visibility: hidden;
+    else if (nationality === "Uganda") {
+        salaryField.value = experience === "Fresh" ? 900 : 1000;
+        salaryField.readOnly = true;
     }
-
-    .preview-section, .preview-section * {
-        visibility: visible;
+    else if (nationality === "Ethiopia") {
+        salaryField.value = 1000;
+        salaryField.readOnly = true;
     }
-
-    .preview-section {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+    else {
+        salaryField.readOnly = false;
     }
-
-    .cv-page {
-        padding: 8px;
-        font-size: 10px;
-    }
-
-    .cv-page:nth-of-type(2) {
-        page-break-before: always;
-    }
-
-    button {
-        display: none;
-    }
-
 }
+
+// ===============================
+// TRANSLATION DICTIONARIES
+// ===============================
+
+const nationalityMap = {
+    "Kenya": "كينيا",
+    "Uganda": "أوغندا",
+    "Ethiopia": "إثيوبيا",
+    "Philippines": "الفلبين",
+    "India": "الهند",
+    "Bangladesh": "بنجلاديش"
+};
+
+const religionMap = {
+    "Muslim": "مسلمة",
+    "Christian": "مسيحية"
+};
+
+const experienceMap = {
+    "Fresh": "بدون خبرة",
+    "EX": "خبرة سابقة"
+};
+
+const maritalMap = {
+    "Single": "أعزب",
+    "Married": "متزوج"
+};
+
+const contractMap = {
+    "2 Years": "سنتان",
+    "1 Year": "سنة واحدة"
+};
+
+const medicalMap = {
+    "Yes": "نعم",
+    "No": "لا"
+};
+
+const levelMap = {
+    "Poor": "ضعيف",
+    "Fair": "مقبول",
+    "Good": "جيد",
+    "Excellent": "ممتاز",
+    "Fluent": "ممتاز",
+    "Very Good": "جيد جداً"
+};
+
+// ===============================
+// MAIN UPDATE FUNCTION
+// ===============================
+
+function updatePreview() {
+
+    // Basic Info
+    const office = document.getElementById("officeName").value;
+    const name = document.getElementById("fullName").value;
+    const gender = document.getElementById("gender").value;
+    const dob = document.getElementById("dob").value;
+    const livingTown = document.getElementById("livingTown").value;
+    const nationality = document.getElementById("nationality").value;
+    const religion = document.getElementById("religion").value;
+    const experience = document.getElementById("experienceType").value;
+    const marital = document.getElementById("maritalStatus").value;
+    const children = document.getElementById("children").value;
+    const profession = document.getElementById("profession").value;
+    const contract = document.getElementById("contract").value;
+    const mobile = document.getElementById("mobileNumber").value;
+    const salary = document.getElementById("salary").value;
+
+    // Passport
+    const passportNumber = document.getElementById("passportNumber").value;
+    const issueDate = document.getElementById("issueDate").value;
+    const expiryDate = document.getElementById("expiryDate").value;
+
+    // Education
+    const education = document.getElementById("education").value;
+    const englishLevel = document.getElementById("englishLevel").value;
+    const arabicLevel = document.getElementById("arabicLevel").value;
+
+    // Experience
+    const country = document.getElementById("country").value;
+    const period = document.getElementById("period").value;
+    const position = document.getEle
