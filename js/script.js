@@ -53,19 +53,9 @@ const nationalityMap = {
     Bangladesh: "بنجلاديش"
 };
 
-const religionMap = {
-    Muslim: "مسلمة",
-    Christian: "مسيحية"
-};
-
 const experienceMap = {
     Fresh: "بدون خبرة",
     EX: "خبرة سابقة"
-};
-
-const maritalMap = {
-    Single: "أعزب",
-    Married: "متزوج"
 };
 
 const contractMap = {
@@ -85,6 +75,30 @@ const levelMap = {
     Excellent: "ممتاز",
     Fluent: "ممتاز"
 };
+
+// ===============================
+// DYNAMIC GENDER LOGIC
+// ===============================
+
+function getReligionArabic(religion, gender) {
+    if (religion === "Muslim") {
+        return gender === "Male" ? "مسلم" : "مسلمة";
+    }
+    if (religion === "Christian") {
+        return gender === "Male" ? "مسيحي" : "مسيحية";
+    }
+    return religion;
+}
+
+function getMaritalArabic(status, gender) {
+    if (status === "Single") {
+        return gender === "Male" ? "أعزب" : "عزباء";
+    }
+    if (status === "Married") {
+        return "متزوج";
+    }
+    return status;
+}
 
 // ===============================
 // MAIN FUNCTION
@@ -149,11 +163,11 @@ function updatePreview() {
     document.getElementById("previewHero").innerHTML =
         "الجنسية: " + (nationalityMap[nationality] || nationality) +
         " | العمر: " + age +
-        " | الديانة: " + (religionMap[religion] || religion) +
+        " | الديانة: " + getReligionArabic(religion, gender) +
         " | نوع الخبرة: " + (experienceMap[experience] || experience);
 
     document.getElementById("previewMarital").innerText =
-        "الحالة الاجتماعية: " + (maritalMap[marital] || marital) +
+        "الحالة الاجتماعية: " + getMaritalArabic(marital, gender) +
         " | عدد الأطفال: " + children;
 
     document.getElementById("previewProfession").innerText =
@@ -168,7 +182,7 @@ function updatePreview() {
         "رقم الهاتف: " + mobile;
 
     document.getElementById("previewPersonal").innerHTML =
-        "الجنس: " + gender + "<br>" +
+        "الجنس: " + (gender === "Male" ? "ذكر" : "أنثى") + "<br>" +
         "تاريخ الميلاد: " + dob + "<br>" +
         "مكان الإقامة: " + livingTown;
 
