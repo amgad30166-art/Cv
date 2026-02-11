@@ -13,6 +13,8 @@
 <h1>Haneen Al Sharq Recruitment - CV Generator</h1>
 
 <div class="form-section">
+<label>Office Name</label>
+<input type="text" id="officeName">
 
 <h2>Personal Information</h2>
 
@@ -83,51 +85,63 @@
 <div class="cv-header">
 <h2>Haneen Al Sharq Recruitment</h2>
 <p>Riyadh - Al Nahda - Salman Al Farsi Street</p>
+<p class="office-line">اسم المكتب: <span id="previewOffice"></span></p>
 </div>
 
-<div class="hero-section">
+<div class="main-grid">
 
-<div class="hero-photo">
-<img id="previewPhoto" class="photo">
-</div>
+<div class="info-column">
 
-<div class="hero-info">
-<h1 id="previewName">FULL NAME</h1>
-<p id="previewHero">Nationality | Age | Religion | Experience</p>
+<h3>الاسم الكامل</h3>
+<p id="previewName"></p>
 
-<div class="salary-box">
-Monthly Salary: <span id="previewSalary">0</span> SAR
-</div>
+<p class="hero-line" id="previewHero"></p>
 
 <p id="previewMarital"></p>
 <p id="previewProfession"></p>
 
+<p class="salary-box">
+الراتب الشهري: <span id="previewSalary"></span> SAR
+</p>
+
+<p id="previewContract"></p>
+<p id="previewMobile"></p>
+
+</div>
+
+<div class="photo-column">
+<img id="previewPhoto" class="full-photo">
 </div>
 
 </div>
 
-<div class="section">
-<h3>Passport Details</h3>
-<p id="previewPassport">Passport Info Here</p>
+<div class="two-column">
+
+<div>
+<h3>البيانات الشخصية</h3>
+<p id="previewPersonal"></p>
+
+<h3>بيانات الجواز</h3>
+<p id="previewPassport"></p>
+
+<h3>البيانات الجسدية</h3>
+<p id="previewPhysical"></p>
 </div>
 
-<div class="section">
-<h3>Education & Languages</h3>
-<p id="previewEducation">Education Info</p>
-</div>
+<div>
+<h3>التعليم واللغات</h3>
+<p id="previewEducation"></p>
 
-<div class="section">
-<h3>Work Experience</h3>
-<p id="previewExperience">Experience Info</p>
-</div>
-
-<div class="section">
-<h3>Physical Information</h3>
-<p id="previewPhysical">Height | Weight | Medical</p>
+<h3>الخبرة</h3>
+<p id="previewExperience"></p>
 </div>
 
 </div>
 
+<h3>المهارات الأساسية</h3>
+<p id="previewSkills"></p>
+
+</div>
 
 
 <!-- PAGE 2 -->
