@@ -215,4 +215,37 @@ button:hover {
         width: 180px;
     }
 }
+/* FORCE PAGE 1 FIT */
+
+.cv-page {
+    padding: 15px;
+}
+
+.section {
+    margin-top: 12px;
+    padding-top: 6px;
+}
+
+.hero-section {
+    margin-bottom: 10px;
+}
+
+.hero-info h1 {
+    font-size: 22px;
+}
+
+#previewHero {
+    font-size: 14px;
+}
+
+.salary-box {
+    padding: 6px 10px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.section h3 {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
 
