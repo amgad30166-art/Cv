@@ -103,6 +103,9 @@ function getMaritalArabic(status, gender) {
 // ===============================
 // MAIN FUNCTION
 // ===============================
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+}
 
 function updatePreview() {
 
@@ -158,7 +161,7 @@ function updatePreview() {
     }
 
     document.getElementById("previewOffice").innerText = office;
-    document.getElementById("previewName").innerText = name;
+    document.getElementById("previewName").innerText = capitalizeWords(name);
 
     document.getElementById("previewHero").innerHTML =
         "الجنسية: " + (nationalityMap[nationality] || nationality) +
@@ -191,9 +194,11 @@ function updatePreview() {
         "تاريخ الإصدار: " + issueDate + "<br>" +
         "تاريخ الانتهاء: " + expiryDate;
 
-    document.getElementById("previewPhysical").innerHTML =
-        "الطول: " + height + " سم | الوزن: " + weight + " كجم" +
-        " | لائقة طبياً: " + (medicalMap[medical] || medical);
+   document.getElementById("previewPhysical").innerHTML =
+    "الطول: " + height + " سم<br>" +
+    "الوزن: " + weight + " كجم<br>" +
+    "لائقة طبياً: " + (medicalMap[medical] || medical);
+
 
     document.getElementById("previewEducation").innerHTML =
         "المستوى التعليمي: " + education + "<br>" +
