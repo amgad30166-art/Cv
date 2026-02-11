@@ -1,13 +1,86 @@
- // ===============================
-// AGE CALCULATION
+// ===============================
+// 1. DATA TRANSLATION MAPS
+// ===============================
+const maps = {
+    nationality: {
+        "Kenya": "كينيا",
+        "Uganda": "أوغندا",
+        "Ethiopia": "إثيوبيا",
+        "Philippines": "الفلبين",
+        "India": "الهند",
+        "Bangladesh": "بنجلاديش",
+        "Sri Lanka": "سيريلانكا"
+    },
+    religion: {
+        "Muslim": "مسلم",
+        "Christian": "مسيحي",
+        "Non-Muslim": "غير مسلم"
+    },
+    marital: {
+        "Single": "عزباء",
+        "Married": "متزوجة",
+        "Divorced": "مطلقة"
+    },
+    gender: {
+        "Female": "أنثى",
+        "Male": "ذكر"
+    },
+    profession: {
+        "Housemaid": "عاملة منزلية",
+        "Cook": "طباخة",
+        "Nanny": "مربية أطفال",
+        "Driver": "سائق خاص"
+    },
+    experience: {
+        "Fresh": "جديدة",
+        "EX": "خبرة سابقة"
+    },
+    contract: {
+        "2 Years": "سنتان",
+        "1 Year": "سنة واحدة"
+    },
+    level: {
+        "Poor": "ضعيف",
+        "Fair": "مقبول",
+        "Good": "جيد",
+        "Excellent": "ممتاز",
+        "Little": "قليل",
+        "Primary": "ابتدائي",
+        "Secondary": "متوسط",
+        "High School": "ثانوي",
+        "College": "جامعي"
+    },
+    skills: {
+        cleaning: "التنظيف",
+        washing: "الغسيل",
+        ironing: "الكوي",
+        cooking: "الطبخ",
+        arabicCooking: "الطبخ العربي",
+        babysitting: "رعاية الرضع",
+        disabledCare: "رعاية كبار السن"
+    }
+};
+
+// ===============================
+// 2. HELPER FUNCTIONS
 // ===============================
 
+function getValue(id) {
+    const el = document.getElementById(id);
+    return el ? el.value : "";
+}
+
+function setText(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.innerText = text;
+}
+
 function calculateAge(dob) {
+    if (!dob) return "";
     const birthDate = new Date(dob);
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
     const month = today.getMonth() - birthDate.getMonth();
-
     if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
@@ -15,240 +88,129 @@ function calculateAge(dob) {
 }
 
 // ===============================
-// AUTO SALARY RULES
+// 3. AUTO SALARY LOGIC
 // ===============================
-
 function autoSalary() {
-    const nationality = document.getElementById("nationality").value;
-    const experience = document.getElementById("experienceType").value;
+    const nationality = getValue("nationality");
+    const experience = getValue("experienceType");
     const salaryField = document.getElementById("salary");
 
+    let amount = "";
+
     if (nationality === "Kenya") {
-        salaryField.value = experience === "Fresh" ? 850 : 1000;
-        salaryField.readOnly = true;
+        amount = experience === "Fresh" ? 850 : 900;
+    } else if (nationality === "Uganda") {
+        amount = experience === "Fresh" ? 900 : 1000;
+    } else if (nationality === "Ethiopia") {
+        amount = 1000;
+    } else if (nationality === "Bangladesh") {
+        amount = 1000; // Example
     }
-    else if (nationality === "Uganda") {
-        salaryField.value = experience === "Fresh" ? 900 : 1000;
-        salaryField.readOnly = true;
-    }
-    else if (nationality === "Ethiopia") {
-        salaryField.value = 1000;
-        salaryField.readOnly = true;
-    }
-    else {
-        salaryField.readOnly = false;
+
+    if (amount !== "") {
+        salaryField.value = amount;
     }
 }
 
 // ===============================
-// TRANSLATION MAPS
+// 4. MAIN PREVIEW UPDATE
 // ===============================
-
-const nationalityMap = {
-    Kenya: "كينيا",
-    Uganda: "أوغندا",
-    Ethiopia: "إثيوبيا",
-    Philippines: "الفلبين",
-    India: "الهند",
-    Bangladesh: "بنجلاديش"
-};
-
-const experienceMap = {
-    Fresh: "بدون خبرة",
-    EX: "خبرة سابقة"
-};
-
-const contractMap = {
-    "2 Years": "سنتان",
-    "1 Year": "سنة واحدة"
-};
-
-const medicalMap = {
-    Yes: "نعم",
-    No: "لا"
-};
-
-const levelMap = {
-    Poor: "ضعيف",
-    Fair: "مقبول",
-    Good: "جيد",
-    Excellent: "ممتاز",
-    Fluent: "ممتاز"
-};
-
-// ===============================
-// DYNAMIC GENDER LOGIC
-// ===============================
-
-function getReligionArabic(religion, gender) {
-    if (religion === "Muslim") {
-        return gender === "Male" ? "مسلم" : "مسلمة";
-    }
-    if (religion === "Christian") {
-        return gender === "Male" ? "مسيحي" : "مسيحية";
-    }
-    return religion;
-}
-
-function getMaritalArabic(status, gender) {
-    if (status === "Single") {
-        return gender === "Male" ? "أعزب" : "عزباء";
-    }
-    if (status === "Married") {
-        return "متزوج";
-    }
-    return status;
-}
-
-// ===============================
-// MAIN FUNCTION
-// ===============================
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
-}
-function createRow(label, value) {
-    return `
-        <div class="info-row">
-            <span class="info-label">${label}</span>
-            <span class="info-value">${value || "-"}</span>
-        </div>
-    `;
-}
-
 function updatePreview() {
+    
+    // 1. Basic Text Fields
+    setText("previewOffice", getValue("officeName"));
+    setText("previewName", getValue("fullName").toUpperCase());
+    setText("previewTown", getValue("livingTown"));
+    setText("previewMobile", getValue("mobileNumber"));
+    setText("previewChildren", getValue("children"));
+    setText("previewHeight", getValue("height") + " cm");
+    setText("previewWeight", getValue("weight") + " kg");
+    setText("previewSalary", getValue("salary") + " ريال");
+    
+    setText("previewPassportNum", getValue("passportNumber"));
+    setText("previewIssue", getValue("issueDate"));
+    setText("previewExpiry", getValue("expiryDate"));
 
-    const office = document.getElementById("officeName").value;
-    const name = document.getElementById("fullName").value;
-    const gender = document.getElementById("gender").value;
-    const dob = document.getElementById("dob").value;
-    const livingTown = document.getElementById("livingTown").value;
-    const nationality = document.getElementById("nationality").value;
-    const religion = document.getElementById("religion").value;
-    const experience = document.getElementById("experienceType").value;
-    const marital = document.getElementById("maritalStatus").value;
-    const children = document.getElementById("children").value;
-    const profession = document.getElementById("profession").value;
-    const contract = document.getElementById("contract").value;
-    const mobile = document.getElementById("mobileNumber").value;
-    const salary = document.getElementById("salary").value;
+    setText("previewCountry", getValue("country"));
+    setText("previewPeriod", getValue("period"));
+    setText("previewPosition", getValue("position"));
 
-    const passportNumber = document.getElementById("passportNumber").value;
-    const issueDate = document.getElementById("issueDate").value;
-    const expiryDate = document.getElementById("expiryDate").value;
+    // 2. Mapped Fields (English -> Arabic)
+    const nat = getValue("nationality");
+    setText("previewNationality", maps.nationality[nat] || nat);
 
-    const education = document.getElementById("education").value;
-    const englishLevel = document.getElementById("englishLevel").value;
-    const arabicLevel = document.getElementById("arabicLevel").value;
+    const rel = getValue("religion");
+    setText("previewReligion", maps.religion[rel] || rel);
 
-    const country = document.getElementById("country").value;
-    const period = document.getElementById("period").value;
-    const position = document.getElementById("position").value;
-    const otherExperience = document.getElementById("otherExperience").value;
+    const mar = getValue("maritalStatus");
+    setText("previewMarital", maps.marital[mar] || mar);
 
-    const height = document.getElementById("height").value;
-    const weight = document.getElementById("weight").value;
-    const medical = document.getElementById("medical").value;
+    const prof = getValue("profession");
+    setText("previewProfession", maps.profession[prof] || prof);
 
-    const cleaning = document.getElementById("cleaning").value;
-    const cooking = document.getElementById("cooking").value;
-    const arabicCooking = document.getElementById("arabicCooking").value;
-    const washing = document.getElementById("washing").value;
-    const ironing = document.getElementById("ironing").value;
-    const babysitting = document.getElementById("babysitting").value;
-    const childrenCare = document.getElementById("childrenCare").value;
-    const tutoring = document.getElementById("tutoring").value;
-    const disabledCare = document.getElementById("disabledCare").value;
+    const cont = getValue("contract");
+    setText("previewContract", maps.contract[cont] || cont);
 
-    let age = "";
-    if (dob) {
-        age = calculateAge(dob);
-        if (age < 21 || age > 40) {
-            alert("العمر يجب أن يكون بين 21 و 40 سنة");
-            return;
-        }
+    // 3. Education & Levels
+    const edu = getValue("education");
+    setText("previewEducation", maps.level[edu] || edu);
+
+    const eng = getValue("englishLevel");
+    setText("previewEnglish", maps.level[eng] || eng);
+
+    const ara = getValue("arabicLevel");
+    setText("previewArabic", maps.level[ara] || ara);
+
+    // 4. Age Calculation
+    const dob = getValue("dob");
+    const age = calculateAge(dob);
+    setText("previewDob", dob);
+    setText("previewAge", age);
+    
+    if (age && (age < 21 || age > 50)) {
+        alert("Warning: Age is " + age + ". Usually should be between 21-45.");
     }
 
-    document.getElementById("previewOffice").innerText = office;
-    document.getElementById("previewName").innerText = capitalizeWords(name);
+    // 5. Skills Grid Generation
+    const skillsContainer = document.getElementById("previewSkillsGrid");
+    skillsContainer.innerHTML = ""; // Clear existing
 
-    document.getElementById("previewHero").innerHTML =
-        "الجنسية: " + (nationalityMap[nationality] || nationality) +
-        " | العمر: " + age +
-        " | الديانة: " + getReligionArabic(religion, gender) +
-        " | نوع الخبرة: " + (experienceMap[experience] || experience);
+    // List of skill IDs
+    const skillList = ["cleaning", "washing", "ironing", "cooking", "arabicCooking", "babysitting", "disabledCare"];
+    
+    skillList.forEach(skillID => {
+        const levelVal = getValue(skillID);
+        const arabicLabel = maps.skills[skillID];
+        const arabicLevel = maps.level[levelVal] || levelVal;
 
-    document.getElementById("previewMarital").innerText =
-        "الحالة الاجتماعية: " + getMaritalArabic(marital, gender) +
-        " | عدد الأطفال: " + children;
+        // Create HTML for skill
+        const div = document.createElement("div");
+        div.className = "skill-tag";
+        div.innerHTML = `${arabicLabel} <br> <span>${arabicLevel}</span>`;
+        skillsContainer.appendChild(div);
+    });
 
-    document.getElementById("previewProfession").innerText =
-        "المهنة: " + profession;
-
-    document.getElementById("previewSalary").innerText = salary;
-
-    document.getElementById("previewContract").innerText =
-        "مدة العقد: " + (contractMap[contract] || contract);
-
-    document.getElementById("previewMobile").innerText =
-        "رقم الهاتف: " + mobile;
-
-    document.getElementById("previewPersonal").innerHTML =
-    createRow("الجنس", (gender === "Male" ? "ذكر" : "أنثى")) +
-    createRow("تاريخ الميلاد", dob) +
-    createRow("مكان الإقامة", livingTown);
-
-
-    document.getElementById("previewPassport").innerHTML =
-        "رقم الجواز: " + passportNumber + "<br>" +
-        "تاريخ الإصدار: " + issueDate + "<br>" +
-        "تاريخ الانتهاء: " + expiryDate;
-
-   document.getElementById("previewPhysical").innerHTML =
-    "الطول: " + height + " سم<br>" +
-    "الوزن: " + weight + " كجم<br>" +
-    "لائقة طبياً: " + (medicalMap[medical] || medical);
-
-
-    document.getElementById("previewEducation").innerHTML =
-        "المستوى التعليمي: " + education + "<br>" +
-        "اللغة الإنجليزية: " + (levelMap[englishLevel] || englishLevel) + "<br>" +
-        "اللغة العربية: " + (levelMap[arabicLevel] || arabicLevel);
-
-    document.getElementById("previewExperience").innerHTML =
-        "الدولة: " + country + "<br>" +
-        "المدة: " + period + "<br>" +
-        "الوظيفة: " + position + "<br>" +
-        "خبرات أخرى: " + otherExperience;
-
-    document.getElementById("previewSkills").innerHTML =
-        "التنظيف: " + (levelMap[cleaning] || cleaning) + "<br>" +
-        "الطبخ: " + (levelMap[cooking] || cooking) + "<br>" +
-        "الطبخ العربي: " + (levelMap[arabicCooking] || arabicCooking) + "<br>" +
-        "الغسيل: " + (levelMap[washing] || washing) + "<br>" +
-        "الكوي: " + (levelMap[ironing] || ironing) + "<br>" +
-        "رعاية الرضع: " + (levelMap[babysitting] || babysitting) + "<br>" +
-        "رعاية الأطفال: " + (levelMap[childrenCare] || childrenCare) + "<br>" +
-        "تعليم الأطفال: " + (levelMap[tutoring] || tutoring) + "<br>" +
-        "رعاية كبار السن: " + (levelMap[disabledCare] || disabledCare);
-
-    const photo = document.getElementById("photo").files[0];
-    if (photo) {
+    // 6. Image Handling (Photo)
+    const photoInput = document.getElementById("photo");
+    if (photoInput.files && photoInput.files[0]) {
         const reader = new FileReader();
         reader.onload = function(e) {
             document.getElementById("previewPhoto").src = e.target.result;
         };
-        reader.readAsDataURL(photo);
+        reader.readAsDataURL(photoInput.files[0]);
     }
 
-    const passportScan = document.getElementById("passportScan").files[0];
-    if (passportScan) {
-        const reader2 = new FileReader();
-        reader2.onload = function(e) {
+    // 7. Image Handling (Passport Scan)
+    const passportInput = document.getElementById("passportScan");
+    if (passportInput.files && passportInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
             document.getElementById("previewPassportScan").src = e.target.result;
         };
-        reader2.readAsDataURL(passportScan);
+        reader.readAsDataURL(passportInput.files[0]);
     }
 }
 
+// Event Listeners for Salary Auto-fill
 document.getElementById("nationality").addEventListener("change", autoSalary);
 document.getElementById("experienceType").addEventListener("change", autoSalary);
