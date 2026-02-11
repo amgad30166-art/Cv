@@ -41,31 +41,31 @@ function autoSalary() {
 }
 
 // ===============================
-// TRANSLATION DICTIONARIES
+// TRANSLATION MAPS
 // ===============================
 
 const nationalityMap = {
-    "Kenya": "كينيا",
-    "Uganda": "أوغندا",
-    "Ethiopia": "إثيوبيا",
-    "Philippines": "الفلبين",
-    "India": "الهند",
-    "Bangladesh": "بنجلاديش"
+    Kenya: "كينيا",
+    Uganda: "أوغندا",
+    Ethiopia: "إثيوبيا",
+    Philippines: "الفلبين",
+    India: "الهند",
+    Bangladesh: "بنجلاديش"
 };
 
 const religionMap = {
-    "Muslim": "مسلمة",
-    "Christian": "مسيحية"
+    Muslim: "مسلمة",
+    Christian: "مسيحية"
 };
 
 const experienceMap = {
-    "Fresh": "بدون خبرة",
-    "EX": "خبرة سابقة"
+    Fresh: "بدون خبرة",
+    EX: "خبرة سابقة"
 };
 
 const maritalMap = {
-    "Single": "أعزب",
-    "Married": "متزوج"
+    Single: "أعزب",
+    Married: "متزوج"
 };
 
 const contractMap = {
@@ -74,26 +74,24 @@ const contractMap = {
 };
 
 const medicalMap = {
-    "Yes": "نعم",
-    "No": "لا"
+    Yes: "نعم",
+    No: "لا"
 };
 
 const levelMap = {
-    "Poor": "ضعيف",
-    "Fair": "مقبول",
-    "Good": "جيد",
-    "Excellent": "ممتاز",
-    "Fluent": "ممتاز",
-    "Very Good": "جيد جداً"
+    Poor: "ضعيف",
+    Fair: "مقبول",
+    Good: "جيد",
+    Excellent: "ممتاز",
+    Fluent: "ممتاز"
 };
 
 // ===============================
-// MAIN UPDATE FUNCTION
+// MAIN FUNCTION
 // ===============================
 
 function updatePreview() {
 
-    // Basic Info
     const office = document.getElementById("officeName").value;
     const name = document.getElementById("fullName").value;
     const gender = document.getElementById("gender").value;
@@ -109,17 +107,120 @@ function updatePreview() {
     const mobile = document.getElementById("mobileNumber").value;
     const salary = document.getElementById("salary").value;
 
-    // Passport
     const passportNumber = document.getElementById("passportNumber").value;
     const issueDate = document.getElementById("issueDate").value;
     const expiryDate = document.getElementById("expiryDate").value;
 
-    // Education
     const education = document.getElementById("education").value;
     const englishLevel = document.getElementById("englishLevel").value;
     const arabicLevel = document.getElementById("arabicLevel").value;
 
-    // Experience
     const country = document.getElementById("country").value;
     const period = document.getElementById("period").value;
-    const position = document.getEle
+    const position = document.getElementById("position").value;
+    const otherExperience = document.getElementById("otherExperience").value;
+
+    const height = document.getElementById("height").value;
+    const weight = document.getElementById("weight").value;
+    const medical = document.getElementById("medical").value;
+
+    const cleaning = document.getElementById("cleaning").value;
+    const cooking = document.getElementById("cooking").value;
+    const arabicCooking = document.getElementById("arabicCooking").value;
+    const washing = document.getElementById("washing").value;
+    const ironing = document.getElementById("ironing").value;
+    const babysitting = document.getElementById("babysitting").value;
+    const childrenCare = document.getElementById("childrenCare").value;
+    const tutoring = document.getElementById("tutoring").value;
+    const disabledCare = document.getElementById("disabledCare").value;
+
+    let age = "";
+    if (dob) {
+        age = calculateAge(dob);
+        if (age < 21 || age > 40) {
+            alert("العمر يجب أن يكون بين 21 و 40 سنة");
+            return;
+        }
+    }
+
+    document.getElementById("previewOffice").innerText = office;
+    document.getElementById("previewName").innerText = name;
+
+    document.getElementById("previewHero").innerHTML =
+        "الجنسية: " + (nationalityMap[nationality] || nationality) +
+        " | العمر: " + age +
+        " | الديانة: " + (religionMap[religion] || religion) +
+        " | نوع الخبرة: " + (experienceMap[experience] || experience);
+
+    document.getElementById("previewMarital").innerText =
+        "الحالة الاجتماعية: " + (maritalMap[marital] || marital) +
+        " | عدد الأطفال: " + children;
+
+    document.getElementById("previewProfession").innerText =
+        "المهنة: " + profession;
+
+    document.getElementById("previewSalary").innerText = salary;
+
+    document.getElementById("previewContract").innerText =
+        "مدة العقد: " + (contractMap[contract] || contract);
+
+    document.getElementById("previewMobile").innerText =
+        "رقم الهاتف: " + mobile;
+
+    document.getElementById("previewPersonal").innerHTML =
+        "الجنس: " + gender + "<br>" +
+        "تاريخ الميلاد: " + dob + "<br>" +
+        "مكان الإقامة: " + livingTown;
+
+    document.getElementById("previewPassport").innerHTML =
+        "رقم الجواز: " + passportNumber + "<br>" +
+        "تاريخ الإصدار: " + issueDate + "<br>" +
+        "تاريخ الانتهاء: " + expiryDate;
+
+    document.getElementById("previewPhysical").innerHTML =
+        "الطول: " + height + " سم | الوزن: " + weight + " كجم" +
+        " | لائقة طبياً: " + (medicalMap[medical] || medical);
+
+    document.getElementById("previewEducation").innerHTML =
+        "المستوى التعليمي: " + education + "<br>" +
+        "اللغة الإنجليزية: " + (levelMap[englishLevel] || englishLevel) + "<br>" +
+        "اللغة العربية: " + (levelMap[arabicLevel] || arabicLevel);
+
+    document.getElementById("previewExperience").innerHTML =
+        "الدولة: " + country + "<br>" +
+        "المدة: " + period + "<br>" +
+        "الوظيفة: " + position + "<br>" +
+        "خبرات أخرى: " + otherExperience;
+
+    document.getElementById("previewSkills").innerHTML =
+        "التنظيف: " + (levelMap[cleaning] || cleaning) + "<br>" +
+        "الطبخ: " + (levelMap[cooking] || cooking) + "<br>" +
+        "الطبخ العربي: " + (levelMap[arabicCooking] || arabicCooking) + "<br>" +
+        "الغسيل: " + (levelMap[washing] || washing) + "<br>" +
+        "الكوي: " + (levelMap[ironing] || ironing) + "<br>" +
+        "رعاية الرضع: " + (levelMap[babysitting] || babysitting) + "<br>" +
+        "رعاية الأطفال: " + (levelMap[childrenCare] || childrenCare) + "<br>" +
+        "تعليم الأطفال: " + (levelMap[tutoring] || tutoring) + "<br>" +
+        "رعاية كبار السن: " + (levelMap[disabledCare] || disabledCare);
+
+    const photo = document.getElementById("photo").files[0];
+    if (photo) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById("previewPhoto").src = e.target.result;
+        };
+        reader.readAsDataURL(photo);
+    }
+
+    const passportScan = document.getElementById("passportScan").files[0];
+    if (passportScan) {
+        const reader2 = new FileReader();
+        reader2.onload = function(e) {
+            document.getElementById("previewPassportScan").src = e.target.result;
+        };
+        reader2.readAsDataURL(passportScan);
+    }
+}
+
+document.getElementById("nationality").addEventListener("change", autoSalary);
+document.getElementById("experienceType").addEventListener("change", autoSalary);
