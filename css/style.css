@@ -1,1 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f5f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    background-color: #0d3b66;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.form-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 6px solid #0d3b66;
+}
+
+.form-section h2 {
+    color: #0d3b66;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #0d3b66;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #145da0;
+}
+
+.preview-section {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 8px solid #0d3b66;
+}
+
+.preview-section h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+#previewHero {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.salary-box {
+    background-color: #ffc107;
+    padding: 10px;
+    font-weight: bold;
+    width: fit-content;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.photo {
+    max-width: 250px;
+    display: block;
+    margin-top: 15px;
+    border: 3px solid #0d3b66;
+    border-radius: 5px;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .preview-section, .preview-section * {
+        visibility: visible;
+    }
+
+    .preview-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    button {
+        display: none;
+    }
+}
 
