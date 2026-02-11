@@ -13,6 +13,7 @@
 <h1>Haneen Al Sharq Recruitment - CV Generator</h1>
 
 <div class="form-section">
+
 <label>Office Name</label>
 <input type="text" id="officeName">
 
@@ -21,8 +22,17 @@
 <label>Full Name</label>
 <input type="text" id="fullName">
 
+<label>Gender</label>
+<select id="gender">
+<option value="Female">Female</option>
+<option value="Male">Male</option>
+</select>
+
 <label>Date of Birth</label>
 <input type="date" id="dob">
+
+<label>Living Town</label>
+<input type="text" id="livingTown">
 
 <label>Nationality</label>
 <select id="nationality">
@@ -36,7 +46,10 @@
 </select>
 
 <label>Religion</label>
-<input type="text" id="religion">
+<select id="religion">
+<option value="Muslim">Muslim</option>
+<option value="Christian">Christian</option>
+</select>
 
 <label>Experience Type</label>
 <select id="experienceType">
@@ -46,27 +59,126 @@
 
 <label>Marital Status</label>
 <select id="maritalStatus">
-<option>Single</option>
-<option>Married</option>
+<option value="Single">Single</option>
+<option value="Married">Married</option>
 </select>
 
 <label>Number of Children</label>
 <input type="number" id="children" min="0">
+
+<h2>Job Information</h2>
 
 <label>Profession</label>
 <input type="text" id="profession">
 
 <label>Contract Period</label>
 <select id="contract">
-<option>2 Years</option>
-<option>1 Year</option>
+<option value="2 Years">2 Years</option>
+<option value="1 Year">1 Year</option>
 </select>
+
+<label>Mobile Number</label>
+<input type="text" id="mobileNumber">
 
 <label>Monthly Salary</label>
 <input type="number" id="salary">
 
+<h2>Passport Details</h2>
+
+<label>Passport Number</label>
+<input type="text" id="passportNumber">
+
+<label>Date of Issue</label>
+<input type="date" id="issueDate">
+
+<label>Date of Expiry</label>
+<input type="date" id="expiryDate">
+
+<h2>Education & Languages</h2>
+
+<label>Education Level</label>
+<input type="text" id="education">
+
+<label>English Level</label>
+<select id="englishLevel">
+<option value="Poor">Poor</option>
+<option value="Fair">Fair</option>
+<option value="Good">Good</option>
+<option value="Excellent">Excellent</option>
+<option value="Fluent">Fluent</option>
+</select>
+
+<label>Arabic Level</label>
+<select id="arabicLevel">
+<option value="Poor">Poor</option>
+<option value="Fair">Fair</option>
+<option value="Good">Good</option>
+<option value="Excellent">Excellent</option>
+<option value="Fluent">Fluent</option>
+</select>
+
+<h2>Work Experience</h2>
+
+<label>Country</label>
+<input type="text" id="country">
+
+<label>Period</label>
+<input type="text" id="period">
+
+<label>Position</label>
+<input type="text" id="position">
+
+<label>Other Experience</label>
+<input type="text" id="otherExperience">
+
+<h2>Physical Information</h2>
+
+<label>Height (cm)</label>
+<input type="text" id="height">
+
+<label>Weight (kg)</label>
+<input type="text" id="weight">
+
+<label>Medical Fit</label>
+<select id="medical">
+<option value="Yes">Yes</option>
+<option value="No">No</option>
+</select>
+
+<h2>Core Skills</h2>
+
+<label>Cleaning</label>
+<input type="text" id="cleaning">
+
+<label>Cooking</label>
+<input type="text" id="cooking">
+
+<label>Arabic Cooking</label>
+<input type="text" id="arabicCooking">
+
+<label>Washing</label>
+<input type="text" id="washing">
+
+<label>Ironing</label>
+<input type="text" id="ironing">
+
+<label>Babysitting</label>
+<input type="text" id="babysitting">
+
+<label>Children Care</label>
+<input type="text" id="childrenCare">
+
+<label>Tutoring</label>
+<input type="text" id="tutoring">
+
+<label>Disabled Care</label>
+<input type="text" id="disabledCare">
+
+<h2>Documents</h2>
+
 <label>Upload Photo</label>
 <input type="file" id="photo" accept="image/*">
+
 <label>Upload Passport Scan</label>
 <input type="file" id="passportScan" accept="image/*">
 
@@ -83,8 +195,8 @@
 <div class="cv-page">
 
 <div class="cv-header">
-<h2>Haneen Al Sharq Recruitment</h2>
-<p>Riyadh - Al Nahda - Salman Al Farsi Street</p>
+<h2>شركة حنين الشرق للاستقدام</h2>
+<p>الرياض - حي النهضة - شارع سلمان الفارسي</p>
 <p class="office-line">اسم المكتب: <span id="previewOffice"></span></p>
 </div>
 
@@ -99,7 +211,7 @@
 <div class="compact-line" id="previewProfession"></div>
 
 <div class="salary-box">
-الراتب: <span id="previewSalary"></span> SAR
+الراتب الشهري: <span id="previewSalary"></span> ريال
 </div>
 
 <div class="compact-line" id="previewContract"></div>
@@ -145,13 +257,12 @@
 
 </div>
 
-
 <!-- PAGE 2 -->
 
 <div class="cv-page">
 
 <div class="cv-header">
-<h2>Official Documents</h2>
+<h2>المستندات الرسمية</h2>
 </div>
 
 <div class="passport-scan">
