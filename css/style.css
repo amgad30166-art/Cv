@@ -122,6 +122,22 @@ button:hover {
     text-align: right;
 }
 
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #0d3b66;
+}
+
+.info-value {
+    color: #333;
+}
+
 /* =================================
    HERO SECTION
 ================================= */
