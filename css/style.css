@@ -127,7 +127,10 @@ button:hover {
     }
 
     .page-break {
-        page-break-before: always;
+        .page-break {
+    page-break-before: always;
+}
+
     }
 
     button {
