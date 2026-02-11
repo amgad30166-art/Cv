@@ -106,6 +106,14 @@ function getMaritalArabic(status, gender) {
 function capitalizeWords(str) {
     return str.replace(/\b\w/g, char => char.toUpperCase());
 }
+function createRow(label, value) {
+    return `
+        <div class="info-row">
+            <span class="info-label">${label}</span>
+            <span class="info-value">${value || "-"}</span>
+        </div>
+    `;
+}
 
 function updatePreview() {
 
@@ -185,9 +193,10 @@ function updatePreview() {
         "رقم الهاتف: " + mobile;
 
     document.getElementById("previewPersonal").innerHTML =
-        "الجنس: " + (gender === "Male" ? "ذكر" : "أنثى") + "<br>" +
-        "تاريخ الميلاد: " + dob + "<br>" +
-        "مكان الإقامة: " + livingTown;
+    createRow("الجنس", (gender === "Male" ? "ذكر" : "أنثى")) +
+    createRow("تاريخ الميلاد", dob) +
+    createRow("مكان الإقامة", livingTown);
+
 
     document.getElementById("previewPassport").innerHTML =
         "رقم الجواز: " + passportNumber + "<br>" +
