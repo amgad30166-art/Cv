@@ -36,12 +36,6 @@ h1 {
     border-left: 6px solid #0d3b66;
 }
 
-.form-section h2 {
-    color: #0d3b66;
-    margin-top: 20px;
-    font-size: 16px;
-}
-
 label {
     display: block;
     margin-top: 8px;
@@ -68,10 +62,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background: #145da0;
-}
-
 /* =================================
    PREVIEW SECTION
 ================================= */
@@ -89,10 +79,11 @@ button:hover {
 .cv-page {
     direction: rtl;
     text-align: right;
-    font-size: 10.5px;
-    line-height: 1.2;
-    padding: 10px;
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 20px;
     background: white;
+    border: 1px solid #ddd;
 }
 
 /* =================================
@@ -102,30 +93,87 @@ button:hover {
 .cv-header {
     text-align: center;
     border-bottom: 2px solid #0d3b66;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .cv-header h2 {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     color: #0d3b66;
 }
 
-.cv-header p {
-    margin: 2px 0;
-    font-size: 11px;
+.office-line {
+    text-align: right;
+    font-size: 12px;
 }
 
-.office-line {
-    font-size: 10px;
-    text-align: right;
+/* =================================
+   HERO SECTION (FIXED PROPERLY)
+================================= */
+
+.hero-grid {
+    display: flex;
+    flex-direction: row-reverse; /* Photo on RIGHT */
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.hero-right {
+    width: 35%;
+}
+
+.hero-left {
+    width: 65%;
+}
+
+.hero-left h2 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #0d3b66;
+}
+
+.compact-line {
+    margin-bottom: 6px;
+}
+
+.salary-box {
+    background: #ffc107;
+    padding: 6px 10px;
+    font-weight: bold;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.full-photo {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border: 3px solid #0d3b66;
+    border-radius: 6px;
+}
+
+/* =================================
+   INFORMATION BLOCKS
+================================= */
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 13px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #0d3b66;
+    padding-bottom: 4px;
 }
 
 .info-row {
     display: flex;
     justify-content: space-between;
-    padding: 4px 0;
+    padding: 6px 0;
     border-bottom: 1px dashed #ccc;
 }
 
@@ -139,68 +187,13 @@ button:hover {
 }
 
 /* =================================
-   HERO SECTION
-================================= */
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 35% 65%;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-
-.hero-left h2 {
-    margin: 0 0 4px;
-    font-size: 14px;
-}
-
-.compact-line {
-    margin: 1px 0;
-}
-
-.salary-box {
-    background: #ffc107;
-    padding: 4px 6px;
-    font-weight: bold;
-    margin: 4px 0;
-    border-radius: 3px;
-    display: inline-block;
-}
-
-.full-photo {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border: 2px solid #0d3b66;
-}
-
-/* =================================
-   TWO COLUMN GRID
-================================= */
-
-.info-grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 10px;
-    margin-top: 6px;
-}
-
-h3 {
-    font-size: 11px;
-    margin: 4px 0 2px;
-    border-bottom: 1px solid #0d3b66;
-}
-
-/* =================================
-   SKILLS GRID
+   SKILLS
 ================================= */
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 3px 10px;
-    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 /* =================================
@@ -209,31 +202,36 @@ h3 {
 
 .passport-scan {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+.passport-scan img {
+    max-width: 100%;
+    border: 2px solid #0d3b66;
 }
 
 /* =================================
-   MOBILE RESPONSIVE
+   MOBILE
 ================================= */
 
 @media (max-width: 768px) {
 
     .hero-grid {
-        grid-template-columns: 100%;
+        flex-direction: column;
     }
 
-    .info-grid {
-        grid-template-columns: 100%;
+    .hero-right,
+    .hero-left {
+        width: 100%;
     }
 
     .full-photo {
-        height: 280px;
+        height: 250px;
     }
-
 }
 
 /* =================================
-   PRINT MODE (A4)
+   PRINT MODE
 ================================= */
 
 @media print {
@@ -259,17 +257,7 @@ h3 {
         width: 100%;
     }
 
-    .cv-page {
-        padding: 8px;
-        font-size: 10px;
-    }
-
-    .cv-page:nth-of-type(2) {
-        page-break-before: always;
-    }
-
     button {
         display: none;
     }
-
 }
