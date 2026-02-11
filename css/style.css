@@ -126,9 +126,10 @@ button:hover {
         box-sizing: border-box;
     }
 
-    .page-break {
-        .page-break {
+    .cv-page:nth-of-type(2) {
     page-break-before: always;
+}
+
 }
 
     }
