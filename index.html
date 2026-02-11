@@ -52,7 +52,6 @@
                         <option value="Philippines">Philippines</option>
                         <option value="India">India</option>
                         <option value="Bangladesh">Bangladesh</option>
-                        <option value="Sri Lanka">Sri Lanka</option>
                     </select>
                 </div>
                 <div>
@@ -129,7 +128,7 @@
                     <input type="date" id="expiryDate">
                 </div>
             </div>
-
+            
             <h2>3. Physical & Education</h2>
             <div class="row">
                 <div>
@@ -171,12 +170,8 @@
                 </div>
             </div>
 
-        </div>
-
-        <div class="form-section">
             <h2>4. Experience & Skills</h2>
-            
-            <label>Previous Country (if any)</label>
+            <label>Previous Country</label>
             <input type="text" id="country">
 
             <label>Period</label>
@@ -187,84 +182,51 @@
 
             <hr>
             <h3>Rate Skills</h3>
-            
             <div class="row">
                 <div>
                     <label>Cleaning</label>
-                    <select id="cleaning" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
+                    <select id="cleaning"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
                 </div>
                 <div>
                     <label>Washing</label>
-                    <select id="washing" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
+                    <select id="washing"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
                 </div>
             </div>
-
             <div class="row">
                 <div>
                     <label>Ironing</label>
-                    <select id="ironing" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
+                    <select id="ironing"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
                 </div>
                 <div>
-                    <label>Cooking (Gen)</label>
-                    <select id="cooking" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Little">Little</option>
-                    </select>
+                    <label>Cooking</label>
+                    <select id="cooking"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Little">Little</option></select>
                 </div>
             </div>
-
             <div class="row">
                 <div>
                     <label>Arabic Cooking</label>
-                    <select id="arabicCooking" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Little">Little</option>
-                    </select>
+                    <select id="arabicCooking"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Little">Little</option></select>
                 </div>
                 <div>
                     <label>Baby Sitting</label>
-                    <select id="babysitting" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
+                    <select id="babysitting"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
                 </div>
             </div>
-            
-            <div class="row">
+             <div class="row">
                 <div>
                     <label>Elderly Care</label>
-                    <select id="disabledCare" class="skill-select">
-                        <option value="Poor">Poor</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
+                    <select id="disabledCare"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
                 </div>
             </div>
 
             <h2>5. Uploads</h2>
             <label>Candidate Photo</label>
             <input type="file" id="photo" accept="image/*">
-
             <label>Passport Scan</label>
             <input type="file" id="passportScan" accept="image/*">
 
             <button onclick="updatePreview()" class="action-btn">Update Preview</button>
-            <button onclick="window.print()" class="print-btn">Save as PDF</button>
+            <button onclick="window.print()" class="print-btn">Save PDF</button>
         </div>
     </div>
 </div>
@@ -272,7 +234,6 @@
 <div class="cv-container" id="cvPreview">
 
     <div class="cv-page">
-        
         <header class="cv-header">
             <div class="header-content">
                 <h2>شركة حنين الشرق للاستقدام</h2>
@@ -285,9 +246,8 @@
             
             <aside class="sidebar">
                 <div class="photo-frame">
-                    <img id="previewPhoto" src="https://placehold.co/300x400?text=No+Photo" alt="Candidate Photo">
+                    <img id="previewPhoto" src="https://placehold.co/300x400?text=No+Photo">
                 </div>
-
                 <div class="summary-box">
                     <div class="summary-item">
                         <span class="label">الراتب الشهري</span>
@@ -313,108 +273,86 @@
             </aside>
 
             <main class="details-area">
-                
                 <h1 id="previewName" class="candidate-name">CANDIDATE NAME</h1>
                 <p class="office-tag">مكتب: <span id="previewOffice"></span></p>
 
                 <div class="section-block">
-                    <h3 class="section-title">البيانات الشخصية | Personal Information</h3>
+                    <h3 class="section-title">البيانات الشخصية</h3>
                     <table class="data-table">
                         <tr>
-                            <th>الحالة الاجتماعية</th>
-                            <td id="previewMarital">---</td>
-                            <th>عدد الأطفال</th>
-                            <td id="previewChildren">---</td>
+                            <th>الحالة الاجتماعية</th><td id="previewMarital">---</td>
+                            <th>عدد الأطفال</th><td id="previewChildren">---</td>
                         </tr>
                         <tr>
-                            <th>تاريخ الميلاد</th>
-                            <td id="previewDob">---</td>
-                            <th>مكان الميلاد</th>
-                            <td id="previewTown">---</td>
+                            <th>تاريخ الميلاد</th><td id="previewDob">---</td>
+                            <th>مكان الميلاد</th><td id="previewTown">---</td>
                         </tr>
                         <tr>
-                            <th>الوزن</th>
-                            <td id="previewWeight">---</td>
-                            <th>الطول</th>
-                            <td id="previewHeight">---</td>
+                            <th>الوزن</th><td id="previewWeight">---</td>
+                            <th>الطول</th><td id="previewHeight">---</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="section-block">
-                    <h3 class="section-title">بيانات الجواز | Passport Details</h3>
+                    <h3 class="section-title">بيانات الجواز</h3>
                     <table class="data-table">
                         <tr>
-                            <th>رقم الجواز</th>
-                            <td id="previewPassportNum">---</td>
+                            <th>رقم الجواز</th><td id="previewPassportNum">---</td>
                         </tr>
                         <tr>
-                            <th>تاريخ الإصدار</th>
-                            <td id="previewIssue">---</td>
-                            <th>تاريخ الانتهاء</th>
-                            <td id="previewExpiry">---</td>
+                            <th>تاريخ الإصدار</th><td id="previewIssue">---</td>
+                            <th>تاريخ الانتهاء</th><td id="previewExpiry">---</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="section-block">
-                    <h3 class="section-title">التعليم واللغات | Education & Languages</h3>
+                    <h3 class="section-title">التعليم واللغات</h3>
                     <table class="data-table">
                         <tr>
-                            <th>المستوى التعليمي</th>
-                            <td colspan="3" id="previewEducation">---</td>
+                            <th>المستوى التعليمي</th><td colspan="3" id="previewEducation">---</td>
                         </tr>
                         <tr>
-                            <th>اللغة الإنجليزية</th>
-                            <td id="previewEnglish">---</td>
-                            <th>اللغة العربية</th>
-                            <td id="previewArabic">---</td>
+                            <th>اللغة الإنجليزية</th><td id="previewEnglish">---</td>
+                            <th>اللغة العربية</th><td id="previewArabic">---</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="section-block">
-                    <h3 class="section-title">الخبرة العملية | Work Experience</h3>
+                    <h3 class="section-title">الخبرة العملية</h3>
                     <table class="data-table">
                         <tr>
-                            <th>البلد</th>
-                            <td id="previewCountry">---</td>
-                            <th>المدة</th>
-                            <td id="previewPeriod">---</td>
+                            <th>البلد</th><td id="previewCountry">---</td>
+                            <th>المدة</th><td id="previewPeriod">---</td>
                         </tr>
                         <tr>
-                            <th>الوظيفة</th>
-                            <td colspan="3" id="previewPosition">---</td>
+                            <th>الوظيفة</th><td colspan="3" id="previewPosition">---</td>
                         </tr>
                     </table>
                 </div>
 
                 <div class="section-block">
-                    <h3 class="section-title">المهارات | Skills</h3>
-                    <div class="skills-wrapper" id="previewSkillsGrid">
-                        </div>
+                    <h3 class="section-title">المهارات</h3>
+                    <div class="skills-wrapper" id="previewSkillsGrid"></div>
                 </div>
-
             </main>
         </div>
         
         <footer class="cv-footer">
             <p>مدة العقد: <span id="previewContract"></span></p>
         </footer>
-
     </div>
 
     <div class="cv-page page-break">
         <header class="cv-header">
-            <div class="header-content">
-                <h2>صورة الجواز / Passport Copy</h2>
-            </div>
+            <h2>صورة الجواز / Passport Copy</h2>
         </header>
         <div class="passport-container">
-            <img id="previewPassportScan" src="" alt="Passport Scan will appear here">
+            <img id="previewPassportScan" src="" alt="Passport Scan">
         </div>
     </div>
-
 </div>
 
 <script src="jsscript.js"></script>
