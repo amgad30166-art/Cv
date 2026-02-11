@@ -72,11 +72,42 @@ if (passportScan) {
     }
 
     document.getElementById("previewName").innerText = name;
-    document.getElementById("previewHero").innerText =
-"الجنسية: " + nationality +
-" | العمر: " + age +
-" | الديانة: " + religion +
-" | الخبرة: " + experience;
+    document.getElementById("previewPersonal").innerHTML =
+"الجنس: " + gender + "<br>" +
+"تاريخ الميلاد: " + dob + "<br>" +
+"مكان الإقامة: " + livingTown;
+
+document.getElementById("previewPassport").innerHTML =
+"رقم الجواز: " + passportNumber + "<br>" +
+"تاريخ الإصدار: " + issueDate + "<br>" +
+"تاريخ الانتهاء: " + expiryDate;
+
+document.getElementById("previewPhysical").innerHTML =
+"الطول: " + height + " | الوزن: " + weight +
+" | لائقة طبياً: " + medical;
+
+document.getElementById("previewEducation").innerHTML =
+"المستوى التعليمي: " + education + "<br>" +
+"الإنجليزية: " + englishLevel + "<br>" +
+"العربية: " + arabicLevel;
+
+document.getElementById("previewExperience").innerHTML =
+"الدولة: " + country + "<br>" +
+"المدة: " + period + "<br>" +
+"الوظيفة: " + position + "<br>" +
+"خبرات أخرى: " + otherExperience;
+
+document.getElementById("previewSkills").innerHTML =
+"التنظيف: " + cleaning + "<br>" +
+"الطبخ: " + cooking + "<br>" +
+"الطبخ العربي: " + arabicCooking + "<br>" +
+"الغسيل: " + washing + "<br>" +
+"الكوي: " + ironing + "<br>" +
+"رعاية الرضع: " + babysitting + "<br>" +
+"رعاية الأطفال: " + childrenCare + "<br>" +
+"تعليم الأطفال: " + tutoring + "<br>" +
+"رعاية كبار السن: " + disabledCare;
+
 
 
     document.getElementById("previewSalary").innerText = salary;
