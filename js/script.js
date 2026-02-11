@@ -44,6 +44,15 @@ function updatePreview() {
     const profession = document.getElementById("profession").value;
     const salary = document.getElementById("salary").value;
     const photo = document.getElementById("photo").files[0];
+    const passportScan = document.getElementById("passportScan").files[0];
+
+if (passportScan) {
+    const reader2 = new FileReader();
+    reader2.onload = function(e) {
+        document.getElementById("previewPassportScan").src = e.target.result;
+    };
+    reader2.readAsDataURL(passportScan);
+}
 
     let age = "";
     if (dob) {
