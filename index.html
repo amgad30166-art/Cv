@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haneen Al Sharq CV Generator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,39 +17,17 @@
             <h2>1. Personal Details</h2>
             <label>Office Name</label>
             <input type="text" id="officeName" value="Haneen Al Sharq">
-
             <label>Full Name</label>
             <input type="text" id="fullName" placeholder="e.g. Mary Jane">
-
-            <div class="row">
-                <div>
-                    <label>Gender</label>
-                    <select id="gender">
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Marital Status</label>
-                    <select id="maritalStatus">
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                        <option value="Divorced">Divorced</option>
-                    </select>
-                </div>
-            </div>
-
+            
             <div class="row">
                 <div>
                     <label>Nationality</label>
                     <select id="nationality">
-                        <option value="">Select Country</option>
+                        <option value="">Select</option>
                         <option value="Kenya">Kenya</option>
                         <option value="Uganda">Uganda</option>
                         <option value="Ethiopia">Ethiopia</option>
-                        <option value="Philippines">Philippines</option>
-                        <option value="India">India</option>
-                        <option value="Bangladesh">Bangladesh</option>
                     </select>
                 </div>
                 <div>
@@ -59,167 +35,36 @@
                     <select id="religion">
                         <option value="Muslim">Muslim</option>
                         <option value="Christian">Christian</option>
-                        <option value="Non-Muslim">Non-Muslim</option>
                     </select>
                 </div>
             </div>
 
             <div class="row">
-                <div>
-                    <label>Date of Birth</label>
-                    <input type="date" id="dob">
-                </div>
-                <div>
-                    <label>Children</label>
-                    <input type="number" id="children" min="0" value="0">
-                </div>
-            </div>
-
-            <label>Living Town</label>
-            <input type="text" id="livingTown">
-
-            <h2>2. Job & Passport</h2>
-            <div class="row">
-                <div>
-                    <label>Profession</label>
-                    <select id="profession">
-                        <option value="Housemaid">Housemaid</option>
-                        <option value="Cook">Cook</option>
-                        <option value="Nanny">Nanny</option>
-                        <option value="Driver">Driver</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Exp. Type</label>
-                    <select id="experienceType">
-                        <option value="Fresh">Fresh</option>
-                        <option value="EX">Experienced</option>
+                <div><label>Date of Birth</label><input type="date" id="dob"></div>
+                <div><label>Marital Status</label>
+                    <select id="maritalStatus">
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
                     </select>
                 </div>
             </div>
 
+            <h2>2. Job & Skills</h2>
             <div class="row">
-                <div>
-                    <label>Salary (SAR)</label>
-                    <input type="number" id="salary">
-                </div>
-                <div>
-                    <label>Contract</label>
-                    <select id="contract">
-                        <option value="2 Years">2 Years</option>
-                        <option value="1 Year">1 Year</option>
-                    </select>
-                </div>
+                <div><label>Profession</label><input type="text" id="profession" value="Housemaid"></div>
+                <div><label>Salary (SAR)</label><input type="number" id="salary"></div>
             </div>
-
-            <label>Mobile Number</label>
-            <input type="text" id="mobileNumber">
-
-            <label>Passport Number</label>
-            <input type="text" id="passportNumber">
 
             <div class="row">
-                <div>
-                    <label>Issue Date</label>
-                    <input type="date" id="issueDate">
+                <div><label>Cleaning</label>
+                    <select id="cleaning"><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
                 </div>
-                <div>
-                    <label>Expiry Date</label>
-                    <input type="date" id="expiryDate">
-                </div>
-            </div>
-            
-            <h2>3. Physical & Education</h2>
-            <div class="row">
-                <div>
-                    <label>Height (cm)</label>
-                    <input type="text" id="height">
-                </div>
-                <div>
-                    <label>Weight (kg)</label>
-                    <input type="text" id="weight">
-                </div>
-            </div>
-            
-            <label>Education Level</label>
-            <select id="education">
-                <option value="Primary">Primary</option>
-                <option value="Secondary">Secondary</option>
-                <option value="High School">High School</option>
-                <option value="College">College</option>
-            </select>
-
-            <div class="row">
-                <div>
-                    <label>English</label>
-                    <select id="englishLevel">
-                        <option value="Poor">Poor</option>
-                        <option value="Fair">Fair</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Arabic</label>
-                    <select id="arabicLevel">
-                        <option value="Poor">Poor</option>
-                        <option value="Fair">Fair</option>
-                        <option value="Good">Good</option>
-                        <option value="Excellent">Excellent</option>
-                    </select>
+                <div><label>Cooking</label>
+                    <select id="cooking"><option value="Good">Good</option><option value="Little">Little</option></select>
                 </div>
             </div>
 
-            <h2>4. Experience & Skills</h2>
-            <label>Previous Country</label>
-            <input type="text" id="country">
-
-            <label>Period</label>
-            <input type="text" id="period">
-
-            <label>Position</label>
-            <input type="text" id="position">
-
-            <hr>
-            <h3>Rate Skills</h3>
-            <div class="row">
-                <div>
-                    <label>Cleaning</label>
-                    <select id="cleaning"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
-                </div>
-                <div>
-                    <label>Washing</label>
-                    <select id="washing"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <label>Ironing</label>
-                    <select id="ironing"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
-                </div>
-                <div>
-                    <label>Cooking</label>
-                    <select id="cooking"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Little">Little</option></select>
-                </div>
-            </div>
-            <div class="row">
-                <div>
-                    <label>Arabic Cooking</label>
-                    <select id="arabicCooking"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Little">Little</option></select>
-                </div>
-                <div>
-                    <label>Baby Sitting</label>
-                    <select id="babysitting"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
-                </div>
-            </div>
-             <div class="row">
-                <div>
-                    <label>Elderly Care</label>
-                    <select id="disabledCare"><option value="Poor">Poor</option><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
-                </div>
-            </div>
-
-            <h2>5. Uploads</h2>
+            <h2>3. Photos</h2>
             <label>Candidate Photo</label>
             <input type="file" id="photo" accept="image/*">
             <label>Passport Scan</label>
@@ -232,125 +77,49 @@
 </div>
 
 <div class="cv-container" id="cvPreview">
-
     <div class="cv-page">
         <header class="cv-header">
-            <div class="header-content">
-                <h2>شركة حنين الشرق للاستقدام</h2>
-                <p>Haneen Al Sharq Recruitment</p>
-                <p class="address">الرياض - المملكة العربية السعودية</p>
-            </div>
+            <h2>شركة حنين الشرق للاستقدام</h2>
+            <p>Haneen Al Sharq Recruitment</p>
         </header>
 
         <div class="main-grid">
-            
             <aside class="sidebar">
                 <div class="photo-frame">
-                    <img id="previewPhoto" src="https://placehold.co/300x400?text=No+Photo">
+                    <img id="previewPhoto" src="https://placehold.co/300x400?text=Photo">
                 </div>
                 <div class="summary-box">
-                    <div class="summary-item">
-                        <span class="label">الراتب الشهري</span>
-                        <span class="value salary-highlight" id="previewSalary">---</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="label">المهنة</span>
-                        <span class="value" id="previewProfession">---</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="label">الجنسية</span>
-                        <span class="value" id="previewNationality">---</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="label">الديانة</span>
-                        <span class="value" id="previewReligion">---</span>
-                    </div>
-                    <div class="summary-item">
-                        <span class="label">العمر</span>
-                        <span class="value" id="previewAge">---</span>
-                    </div>
+                    <div class="item"><span class="label">الراتب</span><span class="value" id="previewSalary">---</span></div>
+                    <div class="item"><span class="label">الجنسية</span><span class="value" id="previewNationality">---</span></div>
+                    <div class="item"><span class="label">العمر</span><span class="value" id="previewAge">---</span></div>
                 </div>
             </aside>
 
             <main class="details-area">
-                <h1 id="previewName" class="candidate-name">CANDIDATE NAME</h1>
+                <h1 id="previewName">CANDIDATE NAME</h1>
                 <p class="office-tag">مكتب: <span id="previewOffice"></span></p>
 
                 <div class="section-block">
                     <h3 class="section-title">البيانات الشخصية</h3>
                     <table class="data-table">
-                        <tr>
-                            <th>الحالة الاجتماعية</th><td id="previewMarital">---</td>
-                            <th>عدد الأطفال</th><td id="previewChildren">---</td>
-                        </tr>
-                        <tr>
-                            <th>تاريخ الميلاد</th><td id="previewDob">---</td>
-                            <th>مكان الميلاد</th><td id="previewTown">---</td>
-                        </tr>
-                        <tr>
-                            <th>الوزن</th><td id="previewWeight">---</td>
-                            <th>الطول</th><td id="previewHeight">---</td>
-                        </tr>
+                        <tr><th>الحالة الاجتماعية</th><td id="previewMarital">---</td></tr>
+                        <tr><th>الديانة</th><td id="previewReligion">---</td></tr>
+                        <tr><th>المهنة</th><td id="previewProfession">---</td></tr>
                     </table>
                 </div>
 
                 <div class="section-block">
-                    <h3 class="section-title">بيانات الجواز</h3>
-                    <table class="data-table">
-                        <tr>
-                            <th>رقم الجواز</th><td id="previewPassportNum">---</td>
-                        </tr>
-                        <tr>
-                            <th>تاريخ الإصدار</th><td id="previewIssue">---</td>
-                            <th>تاريخ الانتهاء</th><td id="previewExpiry">---</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="section-block">
-                    <h3 class="section-title">التعليم واللغات</h3>
-                    <table class="data-table">
-                        <tr>
-                            <th>المستوى التعليمي</th><td colspan="3" id="previewEducation">---</td>
-                        </tr>
-                        <tr>
-                            <th>اللغة الإنجليزية</th><td id="previewEnglish">---</td>
-                            <th>اللغة العربية</th><td id="previewArabic">---</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="section-block">
-                    <h3 class="section-title">الخبرة العملية</h3>
-                    <table class="data-table">
-                        <tr>
-                            <th>البلد</th><td id="previewCountry">---</td>
-                            <th>المدة</th><td id="previewPeriod">---</td>
-                        </tr>
-                        <tr>
-                            <th>الوظيفة</th><td colspan="3" id="previewPosition">---</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="section-block">
-                    <h3 class="section-title">المهارات</h3>
+                    <h3 class="section-title">المهارات الأساسية</h3>
                     <div class="skills-wrapper" id="previewSkillsGrid"></div>
                 </div>
             </main>
         </div>
-        
-        <footer class="cv-footer">
-            <p>مدة العقد: <span id="previewContract"></span></p>
-        </footer>
     </div>
 
     <div class="cv-page page-break">
-        <header class="cv-header">
-            <h2>صورة الجواز / Passport Copy</h2>
-        </header>
+        <h3 class="section-title">صورة الجواز / Passport Copy</h3>
         <div class="passport-container">
-            <img id="previewPassportScan" src="" alt="Passport Scan">
+            <img id="previewPassportScan">
         </div>
     </div>
 </div>
