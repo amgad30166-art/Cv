@@ -45,6 +45,13 @@ function updatePreview() {
     const salary = document.getElementById("salary").value;
     const photo = document.getElementById("photo").files[0];
     const passportScan = document.getElementById("passportScan").files[0];
+    const office = document.getElementById("officeName").value;
+const contract = document.getElementById("contract").value;
+const mobile = document.getElementById("mobileNumber")?.value || "";
+
+document.getElementById("previewOffice").innerText = office;
+document.getElementById("previewContract").innerText = "مدة العقد: " + contract;
+document.getElementById("previewMobile").innerText = "رقم الهاتف: " + mobile;
 
 if (passportScan) {
     const reader2 = new FileReader();
@@ -66,7 +73,11 @@ if (passportScan) {
 
     document.getElementById("previewName").innerText = name;
     document.getElementById("previewHero").innerText =
-        nationality + " | " + age + " Years | " + religion + " | " + experience;
+"الجنسية: " + nationality +
+" | العمر: " + age +
+" | الديانة: " + religion +
+" | الخبرة: " + experience;
+
 
     document.getElementById("previewSalary").innerText = salary;
     document.getElementById("previewMarital").innerText =
