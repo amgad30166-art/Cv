@@ -1,101 +1,46 @@
-:root {
-    --primary: #0d3b66; 
-    --accent: #d4a017;
-    --light: #f4f7f6;
-    --text: #333;
-}
-
 body {
-    font-family: 'Cairo', sans-serif; /* Cleaner Arabic Font */
-    background: #eef2f5;
-    margin: 0;
-    padding: 20px;
-    color: var(--text);
+    font-family: 'Cairo', sans-serif;
+    background: #f0f2f5;
+    margin: 0; padding: 20px;
 }
 
-/* --- FORM STYLES (Hidden when printing) --- */
-.container { max-width: 800px; margin: 0 auto 30px auto; }
-.form-section { background: white; padding: 20px; border-radius: 8px; }
-.row { display: flex; gap: 10px; }
-.row > div { flex: 1; }
-label { display: block; margin-top: 10px; font-size: 13px; font-weight: 600; }
-input, select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; box-sizing: border-box; }
-button { width: 100%; padding: 12px; margin-top: 20px; border: none; cursor: pointer; color: white; font-family: 'Cairo'; }
-.action-btn { background: var(--primary); }
-.print-btn { background: var(--accent); color: black; }
+.no-print { max-width: 800px; margin: auto; }
+.form-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.row { display: flex; gap: 15px; }
+.row div { flex: 1; }
+input, select { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; }
 
-/* --- CV PREVIEW STYLES --- */
-.cv-container {
-    max-width: 210mm;
-    margin: auto;
-    background: white;
+.cv-container { width: 210mm; margin: auto; background: white; }
+.cv-page { 
+    width: 210mm; min-height: 297mm; padding: 15mm; 
+    direction: rtl; position: relative; box-sizing: border-box; 
+    border: 1px solid #eee; margin-bottom: 20px;
 }
 
-.cv-page {
-    width: 210mm;
-    min-height: 297mm; /* A4 Height */
-    padding: 10mm;
-    box-sizing: border-box;
-    background: white;
-    direction: rtl; /* Sets Layout to Right-to-Left */
-    position: relative;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-}
+.cv-header { text-align: center; border-bottom: 3px solid #0d3b66; margin-bottom: 20px; }
+.cv-header h2 { color: #0d3b66; margin: 0; }
 
-.cv-header { text-align: center; border-bottom: 3px solid var(--primary); padding-bottom: 10px; margin-bottom: 20px; }
-.cv-header h2 { margin: 0; color: var(--primary); }
+.main-grid { display: grid; grid-template-columns: 30% 65%; gap: 5%; }
 
-/* LAYOUT GRID: Right Column (Photo), Left Column (Info) */
-.main-grid {
-    display: grid;
-    grid-template-columns: 32% 65%; 
-    gap: 3%;
-    align-items: start;
-}
-
-/* RIGHT SIDEBAR */
-.sidebar {
-    background: var(--light);
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-.photo-frame {
-    width: 100%;
-    height: 280px;
-    background: #ccc;
-    border: 2px solid var(--primary);
-    margin-bottom: 15px;
-}
+/* Sidebar stays on the right because of direction: rtl */
+.photo-frame { width: 100%; height: 250px; border: 2px solid #0d3b66; border-radius: 5px; overflow: hidden; }
 .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-.summary-item { margin-bottom: 8px; border-bottom: 1px solid #ddd; }
-.summary-item .label { display: block; font-size: 12px; color: #666; }
-.summary-item .value { display: block; font-size: 15px; font-weight: 700; color: var(--primary); }
-.salary-highlight { color: #d32f2f !important; font-size: 18px !important; }
+.summary-box { background: #f9f9f9; padding: 10px; margin-top: 15px; border-radius: 5px; }
+.summary-box .item { margin-bottom: 10px; border-bottom: 1px solid #eee; }
+.summary-box .label { font-size: 11px; color: #666; display: block; }
+.summary-box .value { font-weight: bold; color: #0d3b66; }
 
-/* LEFT DETAILS */
-.candidate-name { margin: 0; color: var(--primary); font-size: 24px; border-bottom: 1px solid #eee; }
-.section-title { font-size: 14px; background: var(--primary); color: white; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-top: 15px; }
+.section-title { background: #0d3b66; color: white; padding: 5px 15px; border-radius: 4px; font-size: 14px; }
+.data-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.data-table th { text-align: right; font-size: 13px; color: #555; padding: 8px; border-bottom: 1px solid #eee; }
+.data-table td { font-weight: bold; padding: 8px; border-bottom: 1px solid #eee; }
 
-.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 5px; }
-.data-table th { text-align: right; width: 20%; color: #555; padding: 4px 0; font-weight: normal; }
-.data-table td { text-align: right; font-weight: bold; color: #000; border-bottom: 1px dotted #ccc; padding: 4px 0; }
+.skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.skill-box { border: 1px solid #d4a017; padding: 8px; border-right: 5px solid #d4a017; background: #fffdf5; }
 
-/* SKILLS */
-.skills-wrapper { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px; }
-.skill-tag { background: var(--light); border: 1px solid #ddd; padding: 5px; text-align: center; font-size: 11px; }
-.skill-tag span { display: block; font-weight: bold; color: var(--primary); }
-
-.cv-footer { position: absolute; bottom: 0; left: 0; width: 100%; text-align: center; background: var(--light); padding: 10px; border-top: 1px solid #ccc; font-weight: bold; }
-.passport-container img { max-width: 95%; max-height: 800px; border: 1px solid #ddd; display: block; margin: 20px auto; }
-
-/* --- PRINT SETTINGS --- */
 @media print {
-    @page { size: A4; margin: 0; }
-    body { background: white; padding: 0; }
-    .no-print { display: none !important; } /* Hides Form */
-    .cv-container { width: 100%; margin: 0; box-shadow: none; }
+    body { padding: 0; background: white; }
+    .no-print { display: none; }
     .cv-page { border: none; margin: 0; page-break-after: always; }
 }
