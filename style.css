@@ -181,11 +181,12 @@ hr {
 .cv-header {
     text-align: center;
     border-bottom: 3px solid #0d3b66;
-    padding-bottom: 10px;
+    padding: 15px 0 10px 0;
     margin-bottom: 15px;
     position: relative;
-    padding-top: 70px;
+    min-height: 80px;
 }
+
 
 .header-logo {
     position: absolute;
@@ -193,6 +194,13 @@ hr {
     right: 5px;
     height: 65px;
     width: auto;
+}
+.header-phones {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0d3b66;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
 }
 
 .cv-header h2 {
@@ -314,17 +322,16 @@ h3 {
 ================================= */
 
 .cv-footer {
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 2px solid #0d3b66;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
     text-align: center;
+    border-top: 2px solid #0d3b66;
+    padding-top: 6px;
     font-size: 10px;
-    color: #555;
 }
 
-.cv-footer p {
-    margin: 4px 0;
-}
 
 /* =================================
    PASSPORT PAGE
@@ -332,23 +339,17 @@ h3 {
 
 .passport-scan {
     text-align: center;
-    margin-top: 12px;
-    min-height: 930px;
-    max-height: 930px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    margin-top: 20px;
 }
 
 .passport-scan img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 700px;
     object-fit: contain;
-    border: 2px solid #0d3b66;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    display: block;
+    margin: 0 auto;
 }
+
 
 /* =================================
    MOBILE RESPONSIVE
@@ -403,6 +404,10 @@ h3 {
    PRINT MODE (A4)
 ================================= */
 
+/* =================================
+   PRINT MODE (A4)
+================================= */
+
 @media print {
 
     @page {
@@ -433,20 +438,21 @@ h3 {
     }
 
     .cv-page {
-        padding: 10px;
-        font-size: 12px;
+        position: relative;
+        height: 277mm;
+        padding: 12px;
         margin: 0;
         border: none;
         border-radius: 0;
-        page-break-inside: avoid;
-        min-height: 277mm;
-        max-height: 277mm;
         overflow: hidden;
+        page-break-after: always;
+        font-size: 12px;
         font-weight: 600;
+        background: white;
     }
 
-    .page-break {
-        page-break-before: always;
+    .cv-page:last-child {
+        page-break-after: auto;
     }
 
     button, .print-buttons, hr {
@@ -458,9 +464,9 @@ h3 {
         object-fit: contain;
     }
 
-    .cv-footer {
-        font-size: 9px;
-        font-weight: 600;
+    .passport-scan img {
+        max-height: 230mm;
+        object-fit: contain;
     }
 
     h3 {
@@ -471,12 +477,8 @@ h3 {
         font-size: 13px;
     }
 
-    .info-grid > div > div {
-        font-size: 13px;
-    }
-
+    .info-grid > div > div,
     .skills-grid {
         font-size: 13px;
     }
-
 }
