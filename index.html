@@ -1,129 +1,149 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haneen Al Sharq CV Generator</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haneen Al Sharq CV Generator</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="no-print container">
-    <h1>Haneen Al Sharq Recruitment - CV Generator</h1>
+<div class="container">
 
-    <div class="form-grid">
-        <div class="form-section">
-            <h2>1. Personal Details</h2>
-            <label>Office Name</label>
-            <input type="text" id="officeName" value="Haneen Al Sharq">
-            <label>Full Name</label>
-            <input type="text" id="fullName" placeholder="e.g. Mary Jane">
-            
-            <div class="row">
-                <div>
-                    <label>Nationality</label>
-                    <select id="nationality">
-                        <option value="">Select</option>
-                        <option value="Kenya">Kenya</option>
-                        <option value="Uganda">Uganda</option>
-                        <option value="Ethiopia">Ethiopia</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Religion</label>
-                    <select id="religion">
-                        <option value="Muslim">Muslim</option>
-                        <option value="Christian">Christian</option>
-                    </select>
-                </div>
-            </div>
+<h1>Haneen Al Sharq Recruitment - CV Generator</h1>
 
-            <div class="row">
-                <div><label>Date of Birth</label><input type="date" id="dob"></div>
-                <div><label>Marital Status</label>
-                    <select id="maritalStatus">
-                        <option value="Single">Single</option>
-                        <option value="Married">Married</option>
-                    </select>
-                </div>
-            </div>
+<div class="form-section">
 
-            <h2>2. Job & Skills</h2>
-            <div class="row">
-                <div><label>Profession</label><input type="text" id="profession" value="Housemaid"></div>
-                <div><label>Salary (SAR)</label><input type="number" id="salary"></div>
-            </div>
+<label>Office Name</label>
+<input type="text" id="officeName">
 
-            <div class="row">
-                <div><label>Cleaning</label>
-                    <select id="cleaning"><option value="Good">Good</option><option value="Excellent">Excellent</option></select>
-                </div>
-                <div><label>Cooking</label>
-                    <select id="cooking"><option value="Good">Good</option><option value="Little">Little</option></select>
-                </div>
-            </div>
+<h2>Personal Information</h2>
 
-            <h2>3. Photos</h2>
-            <label>Candidate Photo</label>
-            <input type="file" id="photo" accept="image/*">
-            <label>Passport Scan</label>
-            <input type="file" id="passportScan" accept="image/*">
+<label>Full Name</label>
+<input type="text" id="fullName" required>
 
-            <button onclick="updatePreview()" class="action-btn">Update Preview</button>
-            <button onclick="window.print()" class="print-btn">Save PDF</button>
-        </div>
-    </div>
+<label>Gender</label>
+<select id="gender">
+<option value="Female">Female</option>
+<option value="Male">Male</option>
+</select>
+
+<label>Date of Birth</label>
+<input type="date" id="dob">
+
+<label>Living Town</label>
+<input type="text" id="livingTown">
+
+<label>Nationality</label>
+<select id="nationality">
+<option value="">Select</option>
+<option value="Kenya">Kenya</option>
+<option value="Uganda">Uganda</option>
+<option value="Ethiopia">Ethiopia</option>
+<option value="Philippines">Philippines</option>
+<option value="India">India</option>
+<option value="Bangladesh">Bangladesh</option>
+</select>
+
+<label>Religion</label>
+<select id="religion">
+<option value="Muslim">Muslim</option>
+<option value="Christian">Christian</option>
+</select>
+
+<label>Experience Type</label>
+<select id="experienceType">
+<option value="Fresh">Fresh</option>
+<option value="EX">EX</option>
+</select>
+
+<label>Marital Status</label>
+<select id="maritalStatus">
+<option value="Single">Single</option>
+<option value="Married">Married</option>
+</select>
+
+<label>Number of Children</label>
+<input type="number" id="children" min="0" value="0">
+
+<h2>Job Information</h2>
+
+<label>Profession</label>
+<input type="text" id="profession">
+
+<label>Contract Period</label>
+<select id="contract">
+<option value="2 Years">2 Years</option>
+<option value="1 Year">1 Year</option>
+</select>
+
+<label>Mobile Number</label>
+<input type="text" id="mobileNumber">
+
+<label>Monthly Salary</label>
+<input type="number" id="salary">
+
+<h2>Documents</h2>
+
+<label>Upload Photo</label>
+<input type="file" id="photo" accept="image/*">
+
+<label>Upload Passport Scan</label>
+<input type="file" id="passportScan" accept="image/*">
+
+<button type="button" onclick="generateCV()">Update Preview</button>
+
 </div>
 
-<div class="cv-container" id="cvPreview">
-    <div class="cv-page">
-        <header class="cv-header">
-            <h2>شركة حنين الشرق للاستقدام</h2>
-            <p>Haneen Al Sharq Recruitment</p>
-        </header>
+<hr>
 
-        <div class="main-grid">
-            <aside class="sidebar">
-                <div class="photo-frame">
-                    <img id="previewPhoto" src="https://placehold.co/300x400?text=Photo">
-                </div>
-                <div class="summary-box">
-                    <div class="item"><span class="label">الراتب</span><span class="value" id="previewSalary">---</span></div>
-                    <div class="item"><span class="label">الجنسية</span><span class="value" id="previewNationality">---</span></div>
-                    <div class="item"><span class="label">العمر</span><span class="value" id="previewAge">---</span></div>
-                </div>
-            </aside>
+<div class="preview-section">
 
-            <main class="details-area">
-                <h1 id="previewName">CANDIDATE NAME</h1>
-                <p class="office-tag">مكتب: <span id="previewOffice"></span></p>
+<div class="cv-page">
 
-                <div class="section-block">
-                    <h3 class="section-title">البيانات الشخصية</h3>
-                    <table class="data-table">
-                        <tr><th>الحالة الاجتماعية</th><td id="previewMarital">---</td></tr>
-                        <tr><th>الديانة</th><td id="previewReligion">---</td></tr>
-                        <tr><th>المهنة</th><td id="previewProfession">---</td></tr>
-                    </table>
-                </div>
-
-                <div class="section-block">
-                    <h3 class="section-title">المهارات الأساسية</h3>
-                    <div class="skills-wrapper" id="previewSkillsGrid"></div>
-                </div>
-            </main>
-        </div>
-    </div>
-
-    <div class="cv-page page-break">
-        <h3 class="section-title">صورة الجواز / Passport Copy</h3>
-        <div class="passport-container">
-            <img id="previewPassportScan">
-        </div>
-    </div>
+<div class="cv-header">
+<h2>شركة حنين الشرق للاستقدام</h2>
+<p>الرياض - حي النهضة - شارع سلمان الفارسي</p>
+<p class="office-line">اسم المكتب: <span id="previewOffice"></span></p>
 </div>
 
-<script src="jsscript.js"></script>
+<div class="hero-grid">
+
+<div>
+<h2 id="previewName"></h2>
+<div id="previewHero"></div>
+<div id="previewMarital"></div>
+<div id="previewProfession"></div>
+
+<div class="salary-box">
+الراتب الشهري: <span id="previewSalary"></span> ريال
+</div>
+
+<div id="previewContract"></div>
+<div id="previewMobile"></div>
+</div>
+
+<div>
+<img id="previewPhoto" class="full-photo">
+</div>
+
+</div>
+
+</div>
+
+<div class="cv-page">
+<div class="cv-header">
+<h2>المستندات الرسمية</h2>
+</div>
+<div class="passport-scan">
+<img id="previewPassportScan" style="max-width:100%;">
+</div>
+</div>
+
+<button onclick="window.print()">Generate PDF</button>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
