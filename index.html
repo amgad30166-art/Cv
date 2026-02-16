@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Haneen Al Sharq CV Generator</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,18 +15,18 @@
 
 <div class="form-section">
 
-<label>Office Name / اسم المكتب</label>
+<label>Office Name</label>
 <input type="text" id="officeName">
 
-<h2>Personal Information / البيانات الشخصية</h2>
+<h2>Personal Information</h2>
 
 <label>Full Name</label>
 <input type="text" id="fullName">
 
 <label>Gender</label>
 <select id="gender">
-<option value="Female">أنثى</option>
-<option value="Male">ذكر</option>
+<option value="Female">Female</option>
+<option value="Male">Male</option>
 </select>
 
 <label>Date of Birth</label>
@@ -36,35 +36,21 @@
 <input type="text" id="livingTown">
 
 <label>Nationality</label>
-<select id="nationality">
-<option value="">اختر</option>
-<option value="Kenya">كينيا</option>
-<option value="Uganda">أوغندا</option>
-<option value="Ethiopia">إثيوبيا</option>
-<option value="Philippines">الفلبين</option>
-<option value="India">الهند</option>
-<option value="Bangladesh">بنجلاديش</option>
-</select>
+<input type="text" id="nationality">
 
 <label>Religion</label>
 <select id="religion">
-<option value="Muslim">مسلمة</option>
-<option value="Christian">مسيحية</option>
-</select>
-
-<label>Experience Type</label>
-<select id="experienceType">
-<option value="Fresh">بدون خبرة</option>
-<option value="EX">خبرة سابقة</option>
+<option value="Muslim">Muslim</option>
+<option value="Christian">Christian</option>
 </select>
 
 <label>Marital Status</label>
 <select id="maritalStatus">
-<option value="Single">أعزب</option>
-<option value="Married">متزوج</option>
+<option value="Single">Single</option>
+<option value="Married">Married</option>
 </select>
 
-<label>Number of Children</label>
+<label>Children</label>
 <input type="number" id="children" value="0">
 
 <h2>Job Information</h2>
@@ -72,13 +58,10 @@
 <label>Profession</label>
 <input type="text" id="profession">
 
-<label>Contract Period</label>
-<input type="text" id="contract" value="2 Years / سنتان" readonly>
+<label>Contract</label>
+<input type="text" value="2 Years / سنتان" readonly>
 
-<label>Mobile Number</label>
-<input type="text" id="mobileNumber">
-
-<label>Monthly Salary (SAR)</label>
+<label>Salary (SAR)</label>
 <input type="number" id="salary">
 
 <h2>Passport Details</h2>
@@ -86,43 +69,11 @@
 <label>Passport Number</label>
 <input type="text" id="passportNumber">
 
-<label>Date of Issue</label>
+<label>Issue Date</label>
 <input type="date" id="issueDate">
 
-<label>Date of Expiry</label>
+<label>Expiry Date</label>
 <input type="date" id="expiryDate">
-
-<h2>Education & Languages</h2>
-
-<label>Education</label>
-<input type="text" id="education">
-
-<label>English Level</label>
-<select id="englishLevel">
-<option value="Poor">ضعيف</option>
-<option value="Fair">مقبول</option>
-<option value="Good">جيد</option>
-<option value="Excellent">ممتاز</option>
-</select>
-
-<label>Arabic Level</label>
-<select id="arabicLevel">
-<option value="Poor">ضعيف</option>
-<option value="Fair">مقبول</option>
-<option value="Good">جيد</option>
-<option value="Excellent">ممتاز</option>
-</select>
-
-<h2>Work Experience</h2>
-
-<label>Country</label>
-<input type="text" id="country">
-
-<label>Period (Years Only)</label>
-<input type="number" id="period" min="0">
-
-<label>Position</label>
-<input type="text" id="position">
 
 <h2>Physical Information</h2>
 
@@ -132,18 +83,23 @@
 <label>Weight (kg)</label>
 <input type="number" id="weight">
 
-<label>Medical Fit</label>
-<select id="medical">
-<option value="Yes">نعم</option>
-<option value="No">لا</option>
-</select>
+<h2>Experience</h2>
+
+<label>Country</label>
+<input type="text" id="country">
+
+<label>Years</label>
+<input type="number" id="period" min="0">
+
+<label>Position</label>
+<input type="text" id="position">
 
 <h2>Documents</h2>
 
-<label>Upload Photo</label>
+<label>Photo</label>
 <input type="file" id="photo" accept="image/*">
 
-<label>Upload Passport Scan</label>
+<label>Passport Scan</label>
 <input type="file" id="passportScan" accept="image/*">
 
 <button onclick="updatePreview()" class="btn-primary">Update Preview</button>
@@ -154,45 +110,77 @@
 
 <div class="preview-section" id="preview">
 
+<!-- PAGE 1 -->
+
 <div class="cv-page">
 
 <div class="cv-header">
 <img src="logo.png" class="header-logo">
 <h2>شركة حنين الشرق للاستقدام</h2>
-<p>الرياض - حي النهضة - شارع سلمان الفارسي</p>
-<p>0502355630 | 0530554514 | 0558826167</p>
-<p>0535018898 | 0556742038</p>
+<p>الرياض – حي النهضة – شارع سلمان الفارسي</p>
+<p class="phones">0502355630 | 0530554514 | 0558826167</p>
+<p class="phones">0535018898 | 0556742038</p>
 </div>
 
 <div class="hero-grid">
 
-<div class="hero-left">
-<h2 id="previewName">-</h2>
-<div id="previewHero"></div>
-<div id="previewProfession"></div>
+<div class="info-section">
+
+<h3>البيانات الشخصية</h3>
+<div class="sub">Personal Information</div>
+
+<div class="info-line"><span>الاسم</span><span id="pName"></span></div>
+<div class="info-line"><span>الجنسية</span><span id="pNationality"></span></div>
+<div class="info-line"><span>الديانة</span><span id="pReligion"></span></div>
+<div class="info-line"><span>الحالة الاجتماعية</span><span id="pMarital"></span></div>
+<div class="info-line"><span>عدد الأطفال</span><span id="pChildren"></span></div>
+<div class="info-line"><span>الطول</span><span id="pHeight"></span></div>
+<div class="info-line"><span>الوزن</span><span id="pWeight"></span></div>
+
+<h3>الخبرة</h3>
+<div class="sub">Experience</div>
+
+<div class="info-line"><span>الدولة</span><span id="pCountry"></span></div>
+<div class="info-line"><span>المدة</span><span id="pPeriod"></span></div>
+<div class="info-line"><span>الوظيفة</span><span id="pPosition"></span></div>
+
+<h3>بيانات الجواز</h3>
+<div class="sub">Passport Details</div>
+
+<div class="info-line"><span>رقم الجواز</span><span id="pPassport"></span></div>
+<div class="info-line"><span>تاريخ الانتهاء</span><span id="pExpiry"></span></div>
 
 <div class="salary-box">
-الراتب الشهري: <span id="previewSalary">-</span> ريال
-</div>
-
-<div id="previewContract"></div>
-</div>
-
-<div class="hero-right">
-<img id="previewPhoto" class="full-photo">
+<div>الراتب الشهري</div>
+<div class="sub">Monthly Salary</div>
+<div class="salary-value" id="pSalary"></div>
 </div>
 
 </div>
 
-<div id="previewPersonal"></div>
-<div id="previewPassport"></div>
-<div id="previewPhysical"></div>
-<div id="previewExperience"></div>
+<div class="photo-section">
+<img id="previewPhoto" class="photo">
+</div>
 
 </div>
+
+</div>
+
+<!-- PAGE 2 -->
 
 <div class="cv-page page-break">
-<img id="previewPassportScan" style="width:100%;">
+
+<h3 style="text-align:center;">صورة الجواز</h3>
+<div class="sub" style="text-align:center;">Passport Copy</div>
+
+<div class="passport-frame">
+<img id="previewPassportScan">
+</div>
+
+</div>
+
+<div class="print-buttons">
+<button onclick="window.print()" class="btn-print">Generate PDF</button>
 </div>
 
 </div>
